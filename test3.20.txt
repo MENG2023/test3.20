@@ -1,0 +1,100 @@
+2.3方法签名
+在同一个作用域中不能定义两个相同名称的标识符,比如方法中不能定义两个名字一样的变量,那为什么类中就可以定义方法名相同的方法呢?
+方法签名即:经过编译器编译修改之后方法最终的名字,具体方式:方法全路径名+参数列表+返回值类型,构成方法完整的名字
+     
+     public class TestMethod {
+       public static int add(int x,inty){
+      return x+y;
+    }
+  public static double add(double x,double y) {
+      return x+y;
+   }
+public static void main(String[] args) {
+   add(1,2);
+   add(1.5,2.5);
+  }
+}
+上述代码经过编译之后,然后使用JDK自带的java反汇编工具查看,具体操作:
+1.先对工程进行编译生成.class字节码文件
+2.在控制台中进入到要查看的.class所在的目录
+3.输入:Java-v 字节码文件名字即可
+
+
+3.2 递归的概念
+一个方法在执行过程中调用自身,就称为"递归"
+递归相当于数学上的"数学归纳法",有一个起始条件,然后有一个递推公式
+
+ 例如,我们求 N! 
+起始条件: N= 1的时候,N!为1,这个起始条件相当于递归的结束条件
+递归公式:求N!,直接不好求,可以把问题转换成N!=>N*(N-1)!
+ 递归的必要条件:
+1.将原问题划分成其子问题,注意:子问题必须要与原问题的解法相同
+2.递归出口
+代码示例:递归求N的阶乘
+  public static void main(String[] args) {
+   int n = 5;
+   int ret = factor(n);
+  System.out.println("ret="+ret);
+  }
+ public static int factor(int n) {
+  if(n == 1) {
+    return 1;
+ }
+return n*factor(n-1);//factor调用函数自身
+ }
+//执行结果  ret = 120
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
